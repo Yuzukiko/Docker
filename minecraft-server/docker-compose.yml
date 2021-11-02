@@ -1,0 +1,37 @@
+version: "3.8"
+
+#https://hub.docker.com/r/itzg/minecraft-server
+#https://github.com/itzg/docker-minecraft-server/blob/master/README.md
+# not tested yet...
+
+services:
+  minecraft-server:
+    image: itzg/minecraft-server
+    ports:
+      - 25565:25565
+    volumes:
+      - mc-data:/data
+      - mc-plugins:/plugins
+    environment:
+      EULA: "TRUE"
+
+      #server
+      TYPE: "PAPER"
+      VERSION: "LATEST"
+      MEMORY: "2G"
+
+      #server.properties override
+      OVERRIDE_SERVER_PROPERTIES: true
+      MOTD: "My Server"
+      DIFFICULTY: "hard"
+      MAX_PLAYERS: "50"
+      ENABLE_COMMAND_BLOCK: true
+      ALLOW_FLIGHT: true
+      
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    
+volumes:
+  mc-data:
+  mc-plugins:
