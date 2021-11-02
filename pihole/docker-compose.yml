@@ -10,11 +10,12 @@ services:
       - "53:53/udp"
       - "67:67/udp"
       - "80:80/tcp"
+    #Define dns of container
     dns:
       - 127.0.0.1
       - 8.8.8.8
     environment:
-      TZ: 'America/Chicago'
+      TZ: 'Europe/Warsaw'
       # WEBPASSWORD: 'set a secure password here or it will be random'
     # Volumes store your data between container upgrades
     volumes:
