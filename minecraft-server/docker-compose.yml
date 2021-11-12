@@ -2,31 +2,43 @@ version: "3.8"
 
 #https://hub.docker.com/r/itzg/minecraft-server
 #https://github.com/itzg/docker-minecraft-server/blob/master/README.md
-# not tested yet...
 
 services:
   minecraft-server:
     image: itzg/minecraft-server
     ports:
       - 25565:25565
+      - 25575:25575
     volumes:
       - mc-data:/data
-      - mc-plugins:/plugins
     environment:
-      EULA: "TRUE"
+      EULA: true
 
       #server
-      TYPE: "PAPER"
-      VERSION: "LATEST"
-      MEMORY: "2G"
+      TYPE: PAPER
+      VERSION: LATEST
+      MEMORY: 4G
 
       #server.properties override
       OVERRIDE_SERVER_PROPERTIES: true
-      MOTD: "My Server"
-      DIFFICULTY: "hard"
-      MAX_PLAYERS: "50"
-      ENABLE_COMMAND_BLOCK: true
+      MOTD: My Server
+      DIFFICULTY: hard
+      LEVEL_TYPE: default
+      MODE: survival 
+      MAX_PLAYERS: 50
+      VIEW_DISTANCE: 10
+      SPAWN_PROTECTION: 0
+      SERVER_PORT: 25565
+      ONLINE_MODE: true
       ALLOW_FLIGHT: true
+      ENABLE_COMMAND_BLOCK: true
+      PVP: true
+      LEVEL: world
+
+      #RCON
+      ENABLE_RCON: true
+      RCON_PASSWORD: minecraft #change before deploy 
+      RCON_PORT: 25575
       
     tty: true
     stdin_open: true
@@ -34,4 +46,6 @@ services:
     
 volumes:
   mc-data:
-  mc-plugins:
+
+  #Volume address for windows hosts:
+  #\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\
