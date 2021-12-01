@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.3"
 
 #https://hub.docker.com/r/itzg/minecraft-server
 #https://github.com/itzg/docker-minecraft-server/blob/master/README.md
@@ -12,32 +12,32 @@ services:
     volumes:
       - mc-data:/data
     environment:
-      EULA: true
+      EULA: "true"
 
       #server
-      TYPE: PAPER
-      VERSION: LATEST
-      MEMORY: 4G
+      TYPE: "PAPER"
+      VERSION: "LATEST"
+      MEMORY: "2G"
 
       #server.properties override
-      OVERRIDE_SERVER_PROPERTIES: true
-      MOTD: My Server
-      DIFFICULTY: hard
-      LEVEL_TYPE: default
-      MODE: survival 
+      OVERRIDE_SERVER_PROPERTIES: "true"
+      MOTD: "My Server"
+      DIFFICULTY: "hard"
+      LEVEL_TYPE: "default"
+      MODE: "survival" 
       MAX_PLAYERS: 50
       VIEW_DISTANCE: 10
       SPAWN_PROTECTION: 0
       SERVER_PORT: 25565
-      ONLINE_MODE: true
-      ALLOW_FLIGHT: true
-      ENABLE_COMMAND_BLOCK: true
-      PVP: true
-      LEVEL: world
+      ONLINE_MODE: "true"
+      ALLOW_FLIGHT: "true"
+      ENABLE_COMMAND_BLOCK: "true"
+      PVP: "true"
+      LEVEL: "world"
 
       #RCON
-      ENABLE_RCON: true
-      RCON_PASSWORD: minecraft #change before deploy 
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "minecraft" #change before deploy 
       RCON_PORT: 25575
       
     tty: true
