@@ -3,7 +3,7 @@ version: "3"
 services:
   youtrack:
     container_name: youtrack
-    image:  jetbrains/youtrack:2021.4.32527
+    image:  yuzukiko/youtrack:2022.1.45133 #jetbrains/youtrack:2021.4.32527
     ports:
       - 8000:8080
     volumes:
