@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  php:
+    image: php:7.2-apache
+    ports:
+      - 80:80
+    volumes:
+      - /home/pi/html:/var/www/html
+    restart: unless-stopped

@@ -3,14 +3,14 @@ version: "3"
 services:
   youtrack:
     container_name: youtrack
-    image:  yuzukiko/youtrack:2022.1.45133 #jetbrains/youtrack:2021.4.32527
+    image:  yuzukiko/youtrack-2022.1.46592 #jetbrains/youtrack:2021.4.32527
     ports:
       - 8000:8080
     volumes:
-      - './youtrack-data/:/opt/youtrack/data'
-      - './youtrack-conf/:/opt/youtrack/conf'
-      - './youtrack-logs/:/opt/youtrack/logs'
-      - './youtrack-backups/:/opt/youtrack/backups'
+      - '/youtrack-data/:/opt/youtrack/data'
+      - '/youtrack-conf/:/opt/youtrack/conf'
+      - '/youtrack-logs/:/opt/youtrack/logs'
+      - '/youtrack-backups/:/opt/youtrack/backups'
     restart: unless-stopped
 volumes:
   youtrack-data:
