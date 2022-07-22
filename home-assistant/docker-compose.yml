@@ -2,11 +2,18 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: "ghcr.io/home-assistant/home-assistant:stable"
+    image: "homeassistant/home-assistant:latest"
     volumes:
       - /homeassistant-config:/config
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     privileged: true
     network_mode: host
-    
+    deploy:
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 500M
+        reservations:
+          cpus: '0.25'
+          memory: 200M

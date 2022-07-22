@@ -1,0 +1,12 @@
+{
+  "settings": [
+    {
+      "provider": "google",
+      "domain": "",
+      "host": "@",
+      "username": "",
+      "password": "",
+      "ip_version": "ipv4"
+    }
+  ]
+}
